@@ -8,8 +8,8 @@ import Historic from './views/Historic/Historic'
 
 const Routes = () => (
     <HashRouter>
-      <Route path='/weather-app' exact={true} component={() => <App/>} />
-      <Route path='/weather-app/history'  component={() => <Historic/>} />
+      <Route path='/' exact={true} component={() => <App/>} />
+      <Route path='/history'  component={() => <Historic/>} />
     </HashRouter>
   );
 
