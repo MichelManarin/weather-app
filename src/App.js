@@ -56,7 +56,7 @@ class App extends Component {
   callOpenWeatherDetail = async (nomeCidade) => {
 
     
-    fetch("http://api.openweathermap.org/data/2.5/forecast?q=" + nomeCidade +"&APPID=9ffe2ca11ecd1ca4ab7e197b55f4acfe&units=metric&lang=pt")
+    fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + nomeCidade +"&APPID=9ffe2ca11ecd1ca4ab7e197b55f4acfe&units=metric&lang=pt")
       .then(res => res.json())
       .then(
         (response) => {
@@ -125,7 +125,7 @@ class App extends Component {
     e.preventDefault();
     let nomeCidade = e.target.elements.filtroCidade.value;
 
-    fetch("http://api.openweathermap.org/data/2.5/weather?q=" + nomeCidade +"&APPID=9ffe2ca11ecd1ca4ab7e197b55f4acfe&units=metric&lang=pt")
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=" + nomeCidade +"&APPID=9ffe2ca11ecd1ca4ab7e197b55f4acfe&units=metric&lang=pt")
       .then(res => res.json())
       .then(
         (response) => {
