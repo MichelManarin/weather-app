@@ -12,7 +12,7 @@ const Routes = () => (
       <Switch>
         <Route path='/weather-app' component={() => <App />} />
         <Route path='/historico' component={() => <Historic />} />
-        <Route path='*' component={() => <NotFoundPage teste={path} />} />
+        <Route path='*' component={() => <NotFoundPage/>} />
       </Switch>
     </BrowserRouter>
   );
