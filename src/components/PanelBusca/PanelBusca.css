@@ -1,0 +1,9 @@
+.input-busca{
+    margin:5px; margin-top:25px;
+    min-width: 100%;
+}
+
+.input-group{
+    width:100%;
+    display: -webkit-box;
+}

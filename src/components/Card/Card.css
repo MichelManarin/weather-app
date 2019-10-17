@@ -1,0 +1,27 @@
+
+h1{
+   color:#1a1a1a;
+   font-weight: 500;
+   font-size: 50px;
+}
+
+h3{
+    color: #1a1a1a;
+}
+
+.descricao{
+   font-size: 14px;
+   text-transform: capitalize
+}
+
+.card{
+    -webkit-box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    color: #fff;
+    height: 250px;
+    padding: 2em;
+    position: relative;
+    text-align: center;
+}

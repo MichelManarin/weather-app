@@ -1,0 +1,31 @@
+.card-detail {
+    margin: 1px;
+}
+
+.thumbnail{
+    color: #1a1a1a;
+}
+
+.min {
+    color:  #bababa;
+}
+
+.max {
+    color:  #878787;
+
+}
+
+.serrilhado {
+    border-right: 1px dashed #d4d4d4;
+}
+
+.card-detail{
+    -webkit-box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    color: #fff;
+    padding: 2em;
+    position: relative;
+    text-align: center;
+}
