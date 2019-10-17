@@ -8,10 +8,10 @@ import Historic from './views/Historic/Historic'
 
 const Routes = () => (
 
-    <BrowserRouter basename='/'>
+    <BrowserRouter basename='/weather-app'>
       <Switch>
-        <Route path='/weather-app' component={() => <App />} />
-        <Route path='/weather-app/historico' component={() => <Historic />} />
+        <Route path='/' component={() => <App />} />
+        <Route path='/historico' component={() => <Historic />} />
         <Route path='*' component={() => <NotFoundPage/>} />
       </Switch>
     </BrowserRouter>
