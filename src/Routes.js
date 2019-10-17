@@ -11,7 +11,7 @@ const Routes = () => (
     <BrowserRouter basename='/'>
       <Switch>
         <Route path='/weather-app' component={() => <App />} />
-        <Route path='/historico' component={() => <Historic />} />
+        <Route path='/weather-app/historico' component={() => <Historic />} />
         <Route path='*' component={() => <NotFoundPage/>} />
       </Switch>
     </BrowserRouter>
