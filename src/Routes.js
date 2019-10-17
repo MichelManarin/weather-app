@@ -7,11 +7,10 @@ import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 import Historic from './views/Historic/Historic'
 
 const Routes = () => (
-
-    <BrowserRouter basename='/'>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>>
       <Switch>
         <Route path='/weather-app' component={() => <App />} />
-        <Route path='/historico' component={() => <Historic />} />
+        <Route path='/weather-app/historico' component={() => <Historic />} />
         <Route path='*' component={() => <NotFoundPage/>} />
       </Switch>
     </BrowserRouter>
