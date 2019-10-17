@@ -14,6 +14,7 @@ import './NotFoundPage.css';
             <div class="NotFound">
                 <h1>404</h1>
                 <p>Página não encontrada / Page not found</p>
+                <p>{this.props.teste},</p>
             </div>
                 
         );

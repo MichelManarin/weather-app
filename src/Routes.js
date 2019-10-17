@@ -10,9 +10,9 @@ const Routes = () => (
 
     <BrowserRouter basename='/'>
       <Switch>
-        <Route exact path='/' component={() => <App />} />
-        <Route exact path='/historico' component={() => <Historic />} />
-        <Route exact path='*' component={() => <NotFoundPage />} />
+        <Route path='/weather-app' component={() => <App />} />
+        <Route path='/historico' component={() => <Historic />} />
+        <Route path='*' component={() => <NotFoundPage teste={path} />} />
       </Switch>
     </BrowserRouter>
   );
