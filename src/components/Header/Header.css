@@ -25,3 +25,7 @@ a:hover{
     color: #00ba54!important;
     transition: color 0.5s ease;
 }
+
+.active {
+    color: #00ba54!important;
+}

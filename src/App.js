@@ -41,9 +41,7 @@ class App extends Component {
      } })
       .then(res => res.json())
       .then(
-        (response) => {
-   
-         
+        (response) => {         
         },
       
       )
@@ -106,8 +104,8 @@ class App extends Component {
               
             let reg = {cidade:this.state.cidade, previsao:[]};
             reg.previsao=dados;
-            this.callApiHistorico(reg);
-            
+            console.log(reg);
+            this.callApiHistorico(reg);            
 
           } else { 
 

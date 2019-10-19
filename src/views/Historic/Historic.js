@@ -28,8 +28,6 @@ import { async } from 'q';
           contentType: 'application/json',
            success:function(response){
 
-            
-
             let data = [];
             Object.keys(response.Historico[0]).map(function(key){
               data.push(response.Historico[0][key]);
@@ -57,7 +55,6 @@ import { async } from 'q';
                 <div className="container body-content">
                     <div className="body-content">
                       { this.state.historico && this.state.historico.map((c, i) => 
-
                         <Hist nomecidade={c.city} data={c.data} tempo={c.tempo} key={i}/>
 
                        

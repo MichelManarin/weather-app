@@ -13,12 +13,12 @@ class Header extends Component {
         <nav className="navbar navbar-inverse navbar-fixed-top">
           <div className="container">
             <div className="navbar-header">
-              <a className="navbar-brand"><Link to="/">WEATHER</Link></a>
+              <Link className="navbar-brand" to="/">WEATHER</Link>
             </div>
             <div className="navbar-collapse collapse">
                 <ul className="nav navbar-nav">
-                    <li><a><Link to="/">Home</Link></a></li>
-                    <li><a><Link to="/history">Histórico</Link></a></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/history">Histórico</Link></li>
                 </ul>
             </div>
         </div>
