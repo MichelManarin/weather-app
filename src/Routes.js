@@ -7,9 +7,10 @@ import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 import Historic from './views/Historic/Historic'
 
 const Routes = () => (
-    <HashRouter>
-      <Route path='/' exact={true} component={() => <App/>} />
+    <HashRouter basename="/">
+      <Route exact path="/" path='/' component={() => <App/>} />
       <Route path='/history'  component={() => <Historic/>} />
+      <Route path='*' exact={true} component={NotFoundPage} />
     </HashRouter>
   );
 

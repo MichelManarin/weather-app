@@ -11,7 +11,7 @@ import './NotFoundPage.css';
   
       render(){
         return (
-            <div class="NotFound">
+            <div className="NotFound">
                 <h1>404</h1>
                 <p>Página não encontrada / Page not found</p>
             </div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import './Header.css'; 
 
 class Header extends Component {
@@ -12,12 +13,12 @@ class Header extends Component {
         <nav className="navbar navbar-inverse navbar-fixed-top">
           <div className="container">
             <div className="navbar-header">
-              <a className="navbar-brand" href="/">WEATHER</a>
+              <a className="navbar-brand"><Link to="/">WEATHER</Link></a>
             </div>
             <div className="navbar-collapse collapse">
                 <ul className="nav navbar-nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/history">Histórico</a></li>
+                    <li><a><Link to="/">Home</Link></a></li>
+                    <li><a><Link to="/history">Histórico</Link></a></li>
                 </ul>
             </div>
         </div>

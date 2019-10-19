@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Principal.css'; 
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header/Header';
 import PanelBusca from './components/PanelBusca/PanelBusca';
@@ -80,7 +79,7 @@ class App extends Component {
               let dataObj  = new Date(obj.dt_txt);
               dataStrPT=diasSemana[dataObj.getDay()];
 
-              if ((diaAnterior != dataStrPT) && (primeiraExe != 'S') && (count!=4)){
+              if ((diaAnterior !== dataStrPT) && (primeiraExe !== 'S') && (count!==4)){
                 dados.push({data: obj.dt_txt.slice(0,10), datastr: diaAnterior, max_temp:max_temperatura.toFixed(0), min_temp:min_temperatura.toFixed(0)});
                 max_temperatura = 0;
                 min_temperatura = 999;   
@@ -130,7 +129,7 @@ class App extends Component {
       .then(
         (response) => {
           
-          if (response.cod == 200){
+          if (response.cod === 200){
             this.setState({
               temperatura: parseFloat(response.main.temp.toFixed(0)), 
               cidade: response.name,
@@ -144,7 +143,7 @@ class App extends Component {
           } else {
             let msg = "Ocorreu um erro ao realizar a busca.";
 
-            if (response.cod == 404)
+            if (response.cod === 404)
               msg = "Cidade não encontrada";
 
             this.setState({
