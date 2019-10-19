@@ -7,12 +7,11 @@ import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 import Historic from './views/Historic/Historic'
 
 const Routes = () => (
-  <BrowserRouter>
-    <Switch>
-      <Route path="/" exact={true} component={App} />
-      <Route path="/history" component={Historic} />
-    </Switch>
-  </ BrowserRouter>
+    <HashRouter basename="/">
+      <Route exact path='/' component={() => <App/>} />
+      <Route path='/history'  component={() => <Historic/>} />
+      <Route path='*' exact={true} component={NotFoundPage} />
+    </HashRouter>
   );
 
 export default Routes;
