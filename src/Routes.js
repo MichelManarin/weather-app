@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { Route, HashRouter } from 'react-router-dom'
 
 import App from './App';
 import NotFoundPage from './components/NotFoundPage/NotFoundPage';
