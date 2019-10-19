@@ -1,17 +1,18 @@
 import React from "react";
 
-import { HashRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import App from './App';
 import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 import Historic from './views/Historic/Historic'
 
 const Routes = () => (
-    <HashRouter basename="/">
-      <Route exact path="/" path='/' component={() => <App/>} />
-      <Route path='/history'  component={() => <Historic/>} />
-      <Route path='*' exact={true} component={NotFoundPage} />
-    </HashRouter>
+  <BrowserRouter>
+    <Switch>
+      <Route path="/" exact={true} component={App} />
+      <Route path="/history" component={Historic} />
+    </Switch>
+  </ BrowserRouter>
   );
 
 export default Routes;
