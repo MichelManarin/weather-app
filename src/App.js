@@ -8,7 +8,13 @@ import Card from './components/Card/Card';
 import CardDetail from './components/CardDetail/CardDetail';
 import $ from "jquery";
 
-const key = "9ffe2ca11ecd1ca4ab7e197b55f4acfe";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const MySwal = withReactContent(Swal);
 
 class App extends Component {
 
@@ -40,48 +46,65 @@ class App extends Component {
       'Content-Type': 'application/json'
      } })
       .then(res => res.json())
-      .then(
-        (response) => {         
-        },
-      
-      )
-
-   
-  
+        .catch(error => {
+          toast.error('Ocorreu um erro ao atualizar o histórico! ' + error.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            });
+        })
+        .then(
+          (response) => {    
+            toast.success('Histórico atualizado com sucesso!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+              });
+          },
+      )  
   } 
 
   callOpenWeatherDetail = async (nomeCidade) => {
 
-    
     fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + nomeCidade +"&APPID=9ffe2ca11ecd1ca4ab7e197b55f4acfe&units=metric&lang=pt")
       .then(res => res.json())
       .then(
         (response) => {
 
-
           if (response.cod == 200){
-         
             let count=0;
             let dados=[];
             let primeiraExe='S';
             let diaAnterior;
             let max_temperatura = 0;
             let min_temperatura = 999;
-            let dat_temperatura = "";
             let dataStrPT= "";
             let diasSemana = new Array('Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado');
             
-
             for (var key in response.list) {
+
               var obj = response.list[key];
               let dataObj  = new Date(obj.dt_txt);
+              let dataAtual = new Date();
+
+              // As vezes a previsão traz informações do dia atual...
+              if (dataAtual.getDay() === dataObj.getDay())
+                continue;
+
               dataStrPT=diasSemana[dataObj.getDay()];
 
               if ((diaAnterior !== dataStrPT) && (primeiraExe !== 'S') && (count!==4)){
-                dados.push({data: obj.dt_txt.slice(0,10), datastr: diaAnterior, max_temp:max_temperatura.toFixed(0), min_temp:min_temperatura.toFixed(0)});
+                dados.push({data: obj.dt_txt.slice(0,10), datastr: diaAnterior, max_temp:max_temperatura.toFixed(0), min_temp:min_temperatura.toFixed(0),
+                            descricao: obj.weather[0].description, vento_velocidade: obj.wind.speed});
                 max_temperatura = 0;
                 min_temperatura = 999;   
-                count = count + 1;
+                count = count + 1;   
               }
               diaAnterior = dataStrPT;
               primeiraExe = 'N';
@@ -95,7 +118,8 @@ class App extends Component {
             }
 
             if (count = 4)
-              dados.push({data: obj.dt_txt.slice(0,10), datastr: dataStrPT, max_temp:max_temperatura.toFixed(0), min_temp:min_temperatura.toFixed(0)});
+              dados.push({data: obj.dt_txt.slice(0,10), datastr: dataStrPT, max_temp:max_temperatura.toFixed(0), min_temp:min_temperatura.toFixed(0), 
+                          descricao: obj.weather[0].description, vento_velocidade: obj.wind.speed });
 
             this.setState({
               detalhes:dados 
@@ -104,14 +128,16 @@ class App extends Component {
               
             let reg = {cidade:this.state.cidade, previsao:[]};
             reg.previsao=dados;
-            console.log(reg);
             this.callApiHistorico(reg);            
 
           } else { 
-
+            
+            if (response.cod == 404)
+              MySwal.fire(<p className="alerta">Cidade não encontrada!</p>);
+            else 
+              MySwal.fire(response.message);
           }
-          
-         
+                   
         },
       
       )
@@ -166,6 +192,17 @@ class App extends Component {
   render(){
     return (
       <div>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnVisibilityChange
+          draggable
+          pauseOnHover
+      />
         <Header />
           <div className="container body-content">
             <div className="body-content">
@@ -175,7 +212,9 @@ class App extends Component {
                       nomepais={this.state.pais} descricao={this.state.descricao}/>
                 <div className="col-md-9">
                   <div className="col-md-12 thumbnail card-detail">
-                    { this.state.detalhes && this.state.detalhes.map((c, i) => <CardDetail  key={i} max={c.max_temp} min={c.min_temp} datastr={c.datastr}/>)}
+                    { this.state.detalhes && this.state.detalhes.map((c, i) => <CardDetail  key={i} max={c.max_temp} 
+                                                                                min={c.min_temp} datastr={c.datastr} 
+                                                                                desc={c.descricao} vento={c.vento_velocidade} />)}
                    
                   </div>
                 </div>

@@ -4,9 +4,7 @@ import './Header.css';
 
 class Header extends Component {
 
-    constructor(props) {
-        super(props);
-    }
+   
  
     render(){
       return (
@@ -15,7 +13,7 @@ class Header extends Component {
             <div className="navbar-header">
               <Link className="navbar-brand" to="/">WEATHER</Link>
             </div>
-            <div className="navbar-collapse collapse">
+            <div className="collapse navbar-collapse">
                 <ul className="nav navbar-nav">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/history">Histórico</Link></li>

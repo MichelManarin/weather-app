@@ -29,3 +29,8 @@ a:hover{
 .active {
     color: #00ba54!important;
 }
+
+.navbar-nav li.active > a {
+	background-color: #333;
+	color: #fff;
+}

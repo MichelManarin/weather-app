@@ -3,10 +3,6 @@ import React, { Component } from 'react';
 import './Historic.css'; 
 class Historic extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-    
     formataData(data) {
       let dat = new Date(data);
       let options = { year: "numeric", month: "numeric", day: "numeric" };        
@@ -35,25 +31,9 @@ class Historic extends Component {
                 <th scope="row">{c.max}º</th>
               </tr>
                 )}  
-
-
-
-           
-          </tbody>
-          
-
+            </tbody>
           </table>
-
-        
-
-
-      
-
-         
-
-         
         </div>
-      
       );
     }
   }

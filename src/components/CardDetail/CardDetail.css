@@ -29,3 +29,11 @@
     position: relative;
     text-align: center;
 }
+
+.detalhe:hover{
+    cursor: pointer;    
+}
+p{
+    color:black;
+    text-transform: capitalize;
+}

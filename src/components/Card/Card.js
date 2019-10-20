@@ -4,10 +4,6 @@ import './Card.css';
   
   class Card extends Component {
   
-      constructor(props) {
-          super(props);
-      }
-  
      
       render(){
         return (

@@ -22,11 +22,11 @@ class PanelBusca extends Component {
                         <div className="panel-body">
                             <div className="input-group">
                                 <div className="form-group">
-                                    <label className="position-absolute"><small>Nome</small></label>
                                     <input onChange={this.handleChange} value={this.state.nomeCidade} className="form-control input-busca" name="filtroCidade" id="filtroCidade" placeholder="Digite o nome da cidade">
                                     </input>
                                 </div>
-                                <button disabled={!this.state.nomeCidade} className="btn btn-green btn-filtro" id="btnFiltrar" type="submit">Filtrar</button>
+                                    <button disabled={!this.state.nomeCidade} className="btn btn-green btn-filtro" id="btnFiltrar" type="submit">Filtrar</button>
+                                
                             </div>
                         </div>
                     </div>
