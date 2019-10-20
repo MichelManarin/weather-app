@@ -3,7 +3,7 @@ Esse projeto permite que o usuário busque a temperatura atual e a previsão do 
 Ao clicar sobre um dia da previsão é mostrado alguns detalhes sobre o mesmo.
 
 # Observação
-Como a API de histórico está "Deployada" no heroku, a primeira execução pode levar uns 30 segundos até retornar os dados do histórico, pois o heroku não mantém no ar a aplicação que não está sendo usada.
+Como a API de histórico está "Deployada" no heroku, a primeira execução pode levar uns 30 segundos até retornar os dados do histórico, pois o heroku não mantém no ar aplicações com inatividade maior que 40 minutos.
 
 
 ## Dependências
