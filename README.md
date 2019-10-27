@@ -1,3 +1,6 @@
+![Weather-APP](https://user-images.githubusercontent.com/6588753/67643183-3ca99980-f8f3-11e9-8a6c-c9fc19d13d6a.gif)
+
+
 # FrontEnd desafio weather-data
 Esse projeto permite que o usuário busque a temperatura atual e a previsão do tempo para os próximos 5 dias, e também é mantido um histórico de busca realizadas.
 Ao clicar sobre um dia da previsão é mostrado alguns detalhes sobre o mesmo.
